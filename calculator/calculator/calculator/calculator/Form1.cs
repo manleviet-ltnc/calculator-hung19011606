@@ -146,6 +146,40 @@ namespace calculator
             nho = 0;
             lbldisplay.Text = "0";
         }
+
+        private void FrmMain_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    Nhapso("" + e.KeyChar);
+                    break;
+            }
+        }
+
+        private void btnthapphan_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra xem đã tồn tại dấu chấm trong lblDisplay.Text hay chưa
+            if (lbldisplay.Text.Contains("."))
+            {
+                if (lbldisplay.Text == "0.")
+                {
+                    lbldisplay.Text = "";
+                    Nhapso("0.");
+                }
+                return;
+            }
+
+            lbldisplay.Text += ".";
+        }
     }
-}
-       
+}       
